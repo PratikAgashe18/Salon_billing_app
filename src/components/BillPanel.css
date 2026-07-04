@@ -1,0 +1,73 @@
+.bill-panel-wrapper {
+  position: sticky;
+  top: 96px;
+}
+
+.bill-panel {
+  display: flex;
+  flex-direction: column;
+}
+
+.customer-card-container {
+  padding: 24px;
+}
+
+.customer-card-container h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px;
+  margin: 0 0 18px;
+  color: var(--ink);
+}
+
+.input-field {
+  margin-bottom: 14px;
+}
+
+.input-field label {
+  display: block;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: #8A7A82;
+  margin-bottom: 6px;
+}
+
+.input-field input {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  font-family: 'Poppins', sans-serif;
+  font-size: 13.5px;
+  background: var(--cream);
+  color: var(--ink);
+  transition: border-color 0.2s ease, background 0.2s ease;
+}
+
+.input-field input:focus {
+  border-color: var(--plum);
+  background: var(--white);
+  outline: none;
+}
+
+.input-fields-row {
+  display: flex;
+  gap: 12px;
+}
+
+.input-fields-row .input-field {
+  flex: 1;
+  margin-bottom: 0;
+}
+
+.info-note {
+  margin: 0 22px 20px;
+  font-size: 11px;
+  color: #9C8890;
+  line-height: 1.6;
+  background: var(--blush);
+  padding: 12px 14px;
+  border-radius: 10px;
+  border-left: 3px solid var(--rose-gold);
+}

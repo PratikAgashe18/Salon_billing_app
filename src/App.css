@@ -1,0 +1,44 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 26px;
+  padding: 30px 5vw 70px;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .main-content {
+    grid-template-columns: 1fr;
+    padding: 22px 4vw 60px;
+    gap: 20px;
+  }
+}
+
+/* Printing override stylesheets */
+@media print {
+  body {
+    background: #ffffff !important;
+  }
+  .app-container {
+    display: block !important;
+  }
+  .main-content {
+    display: block !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+  .top-header,
+  .catalog-panel,
+  .customer-card-container,
+  .info-note,
+  .action-buttons-container,
+  .no-print {
+    display: none !important;
+  }
+}
