@@ -1,4 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Poppins:wght@300;400;500;600;700&family=Courier+Prime:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Poppins', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+  --font-mono: 'Courier Prime', monospace;
+
+  --color-ink: var(--ink);
+  --color-plum: var(--plum);
+  --color-plum-dark: var(--plum-dark);
+  --color-rose-gold: var(--rose-gold);
+  --color-rose-gold-light: var(--rose-gold-light);
+  --color-cream: var(--cream);
+  --color-blush: var(--blush);
+  --color-white: var(--white);
+  --color-sage: var(--sage);
+  --color-line: var(--line);
+  
+  --shadow-custom: var(--shadow);
+  --shadow-custom-hover: var(--shadow-hover);
+  --radius-custom: var(--radius);
+}
 
 :root {
   --ink: #2E1A24;
@@ -35,7 +57,6 @@
   --shadow-hover: 0 20px 48px -12px rgba(0, 0, 0, 0.6);
 }
 
-
 * {
   box-sizing: border-box;
 }
@@ -52,7 +73,6 @@ select option {
 html {
   scroll-behavior: smooth;
 }
-
 
 body {
   margin: 0;
@@ -164,10 +184,95 @@ textarea:focus-visible {
 
 /* Print override */
 @media print {
-  body {
-    background: white !important;
+  html, body {
+    background: #ffffff !important;
+    color: #000000 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    max-height: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    overflow: visible !important;
   }
+
+  .bg-ambient,
+  .toast-container,
   .no-print {
+    display: none !important;
+  }
+
+  .app-container {
+    display: block !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .main-content {
+    display: block !important;
+    height: auto !important;
+    min-height: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  /* Reset GSAP animated wrappers to fully visible and static layout */
+  div[style*="opacity"] {
+    opacity: 1 !important;
+    height: auto !important;
+    min-height: 0 !important;
+    transform: none !important;
+  }
+
+  .bill-panel-wrapper {
+    position: static !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .bill-panel {
+    display: block !important;
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  .receipt-container {
+    margin: 0 !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    box-shadow: none !important;
+    border: none !important;
+    border-radius: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    overflow: visible !important;
+  }
+
+  .receipt-container::before,
+  .receipt-container::after {
+    display: none !important;
+  }
+
+  .receipt-inner-wrapper {
+    margin: 0 !important;
+    padding: 10px !important;
+    background: #ffffff !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+  }
+
+  .top-header,
+  .catalog-panel,
+  .customer-card-container,
+  .info-note,
+  .action-buttons-container {
     display: none !important;
   }
 }

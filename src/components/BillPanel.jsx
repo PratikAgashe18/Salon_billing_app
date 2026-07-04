@@ -1,7 +1,6 @@
 import React from 'react';
 import Receipt from './Receipt';
 import ActionButtons from './ActionButtons';
-import './BillPanel.css';
 
 export default function BillPanel({
   cart,
@@ -26,39 +25,42 @@ export default function BillPanel({
   const isCartEmpty = cart.length === 0;
 
   return (
-    <section className="bill-panel-wrapper">
-      <div className="bill-panel glass-panel">
+    <section className="sticky top-24 bill-panel-wrapper">
+      <div className="flex flex-col bill-panel glass-panel">
         {/* Customer Info Card */}
-        <div className="customer-card-container no-print">
-          <h2>Customer Details</h2>
-          <div className="input-field">
-            <label htmlFor="custName">Customer Name</label>
+        <div className="p-6 customer-card-container no-print">
+          <h2 className="font-serif text-[22px] m-0 mb-[18px] text-ink">Customer Details</h2>
+          <div className="mb-3.5 input-field">
+            <label htmlFor="custName" className="block text-[11px] font-bold tracking-[0.8px] uppercase text-[#8A7A82] mb-1.5">Customer Name</label>
             <input
               type="text"
               id="custName"
               value={customerName}
               onChange={(e) => setCustomerName(e.target.value)}
+              className="w-full py-[11px] px-[14px] rounded-lg border border-line text-[13.5px] bg-cream text-ink transition-all duration-200 focus:border-plum focus:bg-white focus:outline-none"
               placeholder="e.g. Ananya Rao"
             />
           </div>
-          <div className="input-fields-row">
-            <div className="input-field">
-              <label htmlFor="custPhone">Phone</label>
+          <div className="flex gap-3">
+            <div className="flex-1 mb-0 input-field">
+              <label htmlFor="custPhone" className="block text-[11px] font-bold tracking-[0.8px] uppercase text-[#8A7A82] mb-1.5">Phone</label>
               <input
                 type="tel"
                 id="custPhone"
                 value={customerPhone}
                 onChange={(e) => setCustomerPhone(e.target.value)}
+                className="w-full py-[11px] px-[14px] rounded-lg border border-line text-[13.5px] bg-cream text-ink transition-all duration-200 focus:border-plum focus:bg-white focus:outline-none"
                 placeholder="98765 43210"
               />
             </div>
-            <div className="input-field">
-              <label htmlFor="custEmail">Email</label>
+            <div className="flex-1 mb-0 input-field">
+              <label htmlFor="custEmail" className="block text-[11px] font-bold tracking-[0.8px] uppercase text-[#8A7A82] mb-1.5">Email</label>
               <input
                 type="email"
                 id="custEmail"
                 value={customerEmail}
                 onChange={(e) => setCustomerEmail(e.target.value)}
+                className="w-full py-[11px] px-[14px] rounded-lg border border-line text-[13.5px] bg-cream text-ink transition-all duration-200 focus:border-plum focus:bg-white focus:outline-none"
                 placeholder="customer@email.com"
               />
             </div>
@@ -76,11 +78,6 @@ export default function BillPanel({
           onChangeQty={onChangeQty}
           onRemoveItem={onRemoveItem}
         />
-
-        {/* Info Note */}
-        <div className="info-note no-print">
-          "Email Bill" tries to share the PDF directly to Gmail (supported on most Android/Chrome devices — no download needed). Where that isn't supported, it falls back to downloading the PDF and opening Gmail compose, pre-filled and CC'd to the salon owner — just attach the PDF before sending. A copy always goes to <b>tejasagashe5@gmail.com</b> (owner) via CC.
-        </div>
 
         {/* Action Buttons */}
         <ActionButtons

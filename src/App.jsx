@@ -7,7 +7,6 @@ import { useCart } from './hooks/useCart';
 import { useToast } from './hooks/useToast';
 import { emailBill, downloadPdf, printBill } from './utils/actions';
 import gsap from 'gsap';
-import './App.css';
 
 export default function App() {
   const {
@@ -77,7 +76,7 @@ export default function App() {
   };
 
   return (
-    <div className="app-container">
+    <div className="flex flex-col min-h-screen app-container">
       {/* Moving Ambient Blur Orbs */}
       <div className="bg-ambient" />
 
@@ -85,7 +84,7 @@ export default function App() {
       <Header theme={theme} toggleTheme={toggleTheme} />
 
 
-      <main className="main-content">
+      <main className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-[20px] lg:gap-[26px] px-[4vw] py-[22px] lg:px-[5vw] lg:py-[30px] lg:pb-[70px] pb-[60px] items-start main-content">
         <div ref={catalogRef} style={{ opacity: 0 }}>
           <CatalogPanel
             onAddItem={addItem}

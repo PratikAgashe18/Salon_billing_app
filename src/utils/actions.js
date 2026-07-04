@@ -1,4 +1,4 @@
-import { buildPdfDoc, pdfFileName, buildBillText } from './pdf';
+import { buildPdfDoc, pdfFileName } from './pdf';
 import { OWNER_EMAIL } from '../data/catalog';
 
 export async function emailBill({
@@ -25,8 +25,8 @@ export async function emailBill({
   const doc = buildPdfDoc({ cart, customerName, customerPhone, totals, discountPct, taxPct });
   const subject = 'Your Bill from Velvet & Bloom Salon';
   const shareText =
-    buildBillText({ cart, customerName, totals, discountPct, taxPct }) +
-    `\n\nPlease send to: ${email}\nCC salon owner: ${OWNER_EMAIL}`;
+    `Please find attached the bill for ${customerName || 'Customer'}.\n\n` +
+    `Please send to: ${email}\nCC salon owner: ${OWNER_EMAIL}`;
 
   // Native Web Share API
   try {
@@ -47,8 +47,8 @@ export async function emailBill({
   downloadPdf({ cart, customerName, customerPhone, totals, discountPct, taxPct, showToast });
 
   const body =
-    buildBillText({ cart, customerName, totals, discountPct, taxPct }) +
-    `\n\nA PDF copy of this bill (${filename}) just downloaded to your device — ` +
+    `Dear Customer,\n\nPlease find attached your bill from Velvet & Bloom Salon.\n\n` +
+    `A PDF copy of this bill (${filename}) just downloaded to your device — ` +
     `please attach it to this email before sending.`;
 
   const gmailUrl =
